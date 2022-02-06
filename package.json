@@ -13,8 +13,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test -u",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
+  "homepage": "http://carterdmorgan.github.io/photo-port",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -35,6 +38,7 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.2"
+    "@testing-library/react": "^12.1.2",
+    "gh-pages": "^3.2.3"
   }
 }
