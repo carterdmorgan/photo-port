@@ -3,6 +3,7 @@ import { useState } from 'react';
 import About from './components/About';
 import Gallery from './components/Gallery';
 import Nav from './components/Nav';
+import ContactForm from './components/Contact';
 
 function App() {
   const [categories] = useState([
@@ -15,23 +16,30 @@ function App() {
     { name: 'landscape', description: 'Fields, farmhouses, waterfalls, and the beauty of nature' },
   ]);
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
+  const [contactSelected, setContactSelected] = useState(false);
 
   return (
     <div>
       <Nav
         categories={categories}
         setCurrentCategory={setCurrentCategory}
-        currentCategory={currentCategory}>
+        currentCategory={currentCategory}
+        contactSelected={contactSelected}
+        setContactSelected={setContactSelected}>
       </Nav>
       <main>
-        <div>
-          <Gallery currentCategory={currentCategory}></Gallery>
-          <About></About>
-        </div>
+        {!contactSelected ? (
+          <>
+            <Gallery currentCategory={currentCategory}></Gallery>
+            <About></About>
+          </>
+        ) : (
+          <ContactForm></ContactForm>
+        )}
       </main>
     </div>
   );
-  
+
 }
 
 export default App;
